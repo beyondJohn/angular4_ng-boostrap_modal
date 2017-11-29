@@ -1,16 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 
+import { ModalContentComponent, NgbdModalComponent } from './modal-component/modal-component.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalContentComponent,
+    NgbdModalComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [NgbActiveModal],
+  entryComponents: [ModalContentComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
