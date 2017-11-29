@@ -1,4 +1,22 @@
 .modal-body{
     background-color: #000000;
     height: 100%;
+    color: #ffffff;
+    border: solid 1px #000000;
+    border-radius: 15px;
+}
+.margin{
+    margin: 15px;
+}
+.radius{
+
+    border-radius: 15px;
+}
+.footer{
+    width:100%;
+    text-align: right;
+}
+.center{
+    width: 100%;
+    text-align: center;
 }
