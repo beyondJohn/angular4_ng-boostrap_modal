@@ -9,7 +9,6 @@
     margin: 15px;
 }
 .radius{
-
     border-radius: 15px;
 }
 .footer{
@@ -19,4 +18,7 @@
 .center{
     width: 100%;
     text-align: center;
+}
+.xoutline{
+    outline:none;
 }

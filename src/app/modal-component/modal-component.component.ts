@@ -11,7 +11,7 @@ import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-
     <div class="margin">
       <p>Hello, {{name}}!</p>
       <div class="contentbody margin center">
-        <div  [innerHTML]="mycontent"></div>
+        <div [innerHTML]="mycontent"></div>
       </div>
       <div class="footer">
         <button type="button" class="btn btn-outline-dark radius" (click)="activeModal.close('Close click')">Close</button>
@@ -35,7 +35,7 @@ export class ModalContentComponent {
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // tslint:disable-next-line:component-selector  <--seriously? tslint, hello?
   selector: 'ngbd-modal-component',
   templateUrl: './modal-component.component.html',
   styleUrls: ['./modal-component.component.css']
@@ -58,6 +58,9 @@ export class NgbdModalComponent {
         this.closeResult = `Dismissed ${
           this.getDismissReason(reason)}`;
       });
+      setTimeout(() => {
+        document.getElementsByClassName('modal')[0].setAttribute('style', 'outline:none;');
+      }, 10);
       // modalRef.componentInstance.name = 'JP';
       // modalRef.componentInstance.mycontent = '<h1>This is the modal main content</h1>';
     }
