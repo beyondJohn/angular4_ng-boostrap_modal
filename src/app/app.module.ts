@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { ModalContentComponent, NgbdModalComponent } from './modal-component/modal-component.component';
 
+import { ModalService } from './modal.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,7 @@ import { ModalContentComponent, NgbdModalComponent } from './modal-component/mod
     BrowserModule,
     NgbModule.forRoot()
   ],
-  providers: [NgbActiveModal],
+  providers: [NgbActiveModal, ModalService],
   entryComponents: [ModalContentComponent],
   bootstrap: [AppComponent]
 })

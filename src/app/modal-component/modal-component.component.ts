@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 
 import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
+import { ModalService } from '../modal.service';
+
 @Component({
   selector: 'app-modal-component',
 
@@ -27,7 +29,7 @@ export class ModalContentComponent {
   @Input() mycontent;
   @Input() name;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, private modalservice: ModalService) {
     this.name = 'jp';
     this.mycontent = '<h1>This is the modal main content</h1>'
   }
@@ -44,37 +46,10 @@ export class NgbdModalComponent {
 
   isopen = false;
   closeResult: string;
-  constructor(private modalService: NgbModal) { }
+  constructor(private _modal: NgbModal, private _modalservice: ModalService) { }
 
   open() {
+    this._modalservice.open('psnlogin');
+  }
 
-    if (!this.isopen) {
-      this.isopen = true;
-      const modalRef = this.modalService.open(ModalContentComponent).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-        this.isopen = false;
-      }, (reason) => {
-        this.isopen = false;
-        this.closeResult = `Dismissed ${
-          this.getDismissReason(reason)}`;
-      });
-      setTimeout(() => {
-        document.getElementsByClassName('modal')[0].setAttribute('style', 'outline:none;');
-      }, 10);
-      // modalRef.componentInstance.name = 'JP';
-      // modalRef.componentInstance.mycontent = '<h1>This is the modal main content</h1>';
-    }
-  }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      console.log('Hi');
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      console.log('Hello');
-      return 'by clicking on a backdrop';
-    } else {
-      console.log('Hey');
-      return `with: ${reason}`;
-    }
-  }
 }
