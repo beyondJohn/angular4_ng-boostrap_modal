@@ -1,5 +1,9 @@
 # angular4_ng-bootstrap_modal
 
+## Adds component based modal functionality using angular 4.4 & ng-bootstrap
+
+(bootstrap.css is not used or installed in this app, ng-bootstrap is not bootstrap.css. ng-bootstrap offers ui tools like accordian list and modal) 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
 ## Development server
