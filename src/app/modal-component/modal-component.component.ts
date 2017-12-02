@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-
 import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
 import { ModalService } from '../modal.service';
 
 @Component({
@@ -29,11 +27,10 @@ export class ModalContentComponent {
   @Input() mycontent;
   @Input() name;
 
-  constructor(public activeModal: NgbActiveModal, private modalservice: ModalService) {
+  constructor(public activeModal: NgbActiveModal) {
     this.name = 'jp';
-    this.mycontent = '<h1>This is the modal main content</h1>'
+    this.mycontent = '<h1>This is the main modal content</h1>';
   }
-
 }
 
 @Component({
@@ -44,12 +41,12 @@ export class ModalContentComponent {
 })
 export class NgbdModalComponent {
 
-  isopen = false;
-  closeResult: string;
-  constructor(private _modal: NgbModal, private _modalservice: ModalService) { }
+  // prepare component for transportation to modal service, insert it into an object
+  component: Object = {'component': ModalContentComponent};
+
+  constructor(private _modalservice: ModalService) { }
 
   open() {
-    this._modalservice.open('psnlogin');
+    this._modalservice.open('login', this.component);
   }
-
 }
