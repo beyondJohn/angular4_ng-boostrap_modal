@@ -12,7 +12,7 @@ export class ModalService {
     private _modalService: NgbModal
   ) { }
 
-  open(source: String, component: any) {
+  open(source: String, component: Object) {
     const componentref = component['component'];
 
     if (!this.isactive) {
